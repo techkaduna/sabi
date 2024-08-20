@@ -1,0 +1,10 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.cfg
+sabi.egg-info/PKG-INFO
+sabi.egg-info/SOURCES.txt
+sabi.egg-info/dependency_links.txt
+sabi.egg-info/entry_points.txt
+sabi.egg-info/requires.txt
+sabi.egg-info/top_level.txt
