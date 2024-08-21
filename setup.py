@@ -9,7 +9,7 @@ setup(
     packages=find_packages(),
     description="A simple module to translate plain English to Nigerian (Naija) pidgin English.",
     long_description=readme,
-    long_description_content_type='text/rst',
+    long_description_content_type='text/x-rst',
     author="Kolawole Andrew",
     author_email="andrewolakola@gmail.com",
     url="https://github.com/techkaduna/sabi",
