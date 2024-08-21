@@ -1,32 +1,32 @@
-**Sabi** - Translate plain English to Naija pidgin.
+**Sabi** - Translate plain English to Naija pidgin
 ===================================================
 
 A simple module to translate plain English to Nigerian (Naija) pidgin English.
 
-I had been planning on writing a Python package (academic reasons)
-and had been researching, then I encountered *arrr.py* while doing some Python study - 
-so I decided, why not?  And the result ? na you *SABI*.
+I had been planning on writing a Python package (academic reasons) and had been researching.
+Then I encountered *arrr.py* while doing some Python study - so I decided, why not? And the result? na you *SABI*.
 
-There is the pidginUNMT project, which is more than capable for the job but then - 
-there's numpy and there's pandas.
+There is the pidginUNMT project, which is more than capable for the job, but then - there's numpy and there's pandas.
 
 *sabi - tok like sabi pesin*
 
 Installation
 ------------
 
-   - Using dear pip
+To install using pip, run:
 
-   ::
+   .. code-block:: shell
 
       $ pip install sabi
 
 Usage Example
 --------------
 
-   - A simple translation
+Here are some examples of how to use the `sabi` package:
 
-   ::
+- **A simple translation**
+
+   .. code-block:: python
 
       from sabi import translate
 
@@ -34,67 +34,74 @@ Usage Example
       pidgin = translate(text)
       print(pidgin)
 
-   - Translating from a file into another file
+- **Translating from a file into another file**
 
-   ::
+   .. code-block:: python
 
-       from sabi import Translator
+      from sabi import Translator
 
-       with Translator('english.txt', 'pidgin.txt', ajasa=False) as translated:
-            if translated is True:
-                print('Translated!')
+      with Translator('english.txt', 'pidgin.txt', ajasa=False) as translated:
+          if translated is True:
+              print('Translated!')
 
-   - Or using a decorator
+- **Using a decorator**
 
-   ::
+   .. code-block:: python
 
-       from sabi import translator
+      from sabi import translator
 
-       @translator(ajasa=True)
-       def word(text: str) -> str:
-           return text
+      @translator(ajasa=True)
+      def word(text: str) -> str:
+          return text
 
-        word("How are you")
+      word("How are you")
 
-*Trivial right ? Uuugh! I know.*
+*Trivial right? Uuugh! I know.*
 
 Command-line Usage
 -------------------
 
-   - On installing *sabi*, you'd be able to run *sabi* from your shell as follows:
+After installing `sabi`, you can run it from your shell as follows:
 
-   ::
+- **Translate text**
+
+   .. code-block:: shell
 
       $ sabi --oyinbo 'how are you'
-      
-   - The command about would translate the text *how are you* into its pidgin equivalent,
-   ::
+
+   This command will translate the text *how are you* into its pidgin equivalent.
+
+- **Translate a file**
+
+   .. code-block:: shell
 
       $ sabi --long-tok english.txt
-   - while the command above translates a whole file called english located in the current working directory.
-   
-   - To print the non-sabi boy help text offerable
-   ::
+
+   This command translates the entire file `english.txt` located in the current working directory.
+
+- **Help text**
+
+   To print the help text, use:
+
+   .. code-block:: shell
 
       $ sabi -h
       $ sabi --help
-   - and for the *sabi boy help text*
-   ::
+
+   And for the `sabi` specific help text, use:
+
+   .. code-block:: shell
 
       $ sabi
 
-
-Contibution
+Contribution
 ------------
 
-This project is still quite buggy and is under active development.
-Contributing to this would be such a great honor because I am really not expecting it,
-infact there are no codes of conduct (working on it..).
-The source code for this project is hosted on GitHub `<https://github.com/techkaduna/sabi>`_. 
-Every one is free to contribute, I'd reall appreciate it.
+This project is still quite buggy and is under active development. Contributing to this project would be greatly appreciated. Currently, there are no codes of conduct (working on it).
 
-Authors:
---------------------
-   - Kolawole Olalekan   `andrewolakola@gmail.com`
-   
+The source code for this project is hosted on GitHub: `<https://github.com/techkaduna/sabi>`_. Everyone is free to contribute, and I'd really appreciate it.
 
+Authors
+--------
+
+- Kolawole Olalekan (`andrewolakola@gmail.com`)
