@@ -75,7 +75,7 @@ After installing `sabi`, you can run it from your shell as follows:
 
    .. code-block:: shell
 
-      $ sabi --long-tok english.txt
+      $ sabi --long-tok english.txt --out-file pidgin.txt
 
    This command translates the entire file `english.txt` located in the current working directory.
 
@@ -88,7 +88,7 @@ After installing `sabi`, you can run it from your shell as follows:
       $ sabi -h
       $ sabi --help
 
-   And for the `sabi` specific help text, use:
+   And for a more `sabi boi` help text, use:
 
    .. code-block:: shell
 
@@ -105,16 +105,3 @@ Authors
 --------
 
 - Kolawole Olalekan (`andrewolakola@gmail.com`)
-   
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
-Indices and tables
-==================
-
-
-* :ref:`modindex`
-* :ref:`search`
