@@ -16,5 +16,13 @@ Release History
 
 * Added more sabi boi tunes.
 * Added output file as a Translator context manager parameter.
-* Added tests.py file.
+* Added tests.
 * Fixed installation requirements bugs.
+
+0.1.3
+=====
+
+* Added some more sabi boi tunes, removed some ambigious ones.
+* Fixed the actual install_requires *'slip-of-the-mind'*.
+* Handled error with *sability*.
+* Added version arguments.

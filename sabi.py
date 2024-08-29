@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Sabi - Tok like sabi pesin.
 Translate plain English (oyinbo) words or texts into Naija
@@ -65,11 +64,11 @@ WORDS = {
         "walking",
     ): "waka",
     ("go",): "comot",
-    ("is",): "dey",
-    ("am",): "be",
+    # ("is",): "dey",
+    ("am","are", "is", ): "be",
     ("said",): "tok",
     ("told",): "tell",
-    ("him", "she", "it"): "am",
+    ("him", "her", "it"): "am",
     ("beautiful", "handsome"): "fine",
     ("don't",): "no",
     ("will",): "go",
@@ -94,6 +93,9 @@ WORDS = {
         "leave",
         "go",
     ): "comot",
+    ("say",): "tok",
+    ("carried", ): "carry",
+
 }
 
 PHRASES = {
@@ -141,6 +143,8 @@ PHRASES = {
     ("what a"): "see",
     ("let us",): "make we",
     ("have you",): "you don",
+    ("carry a", "carried a", ): "carry",
+    ("say that", "said that", ): "tok am",
 }
 
 RANDOM_PHRASE = [
@@ -244,9 +248,16 @@ class Translator:
         self._filepath = in_file
         self._filename = out_file
         self.is_ajasa = ajasa
+        self.filedesc = None
+        self._to_file = None
 
     def __enter__(self) -> bool:
-        self.filedesc = open(self._filepath, "r")
+        try:
+            self.filedesc = open(self._filepath, "r")
+        except FileNotFoundError:
+                return {"result": False, 
+                    "why": f"File {self._filepath} not found.", }
+        
         self._to_file = open(self._filename, "w+")
         sentence_list = self.filedesc.readlines()
         translated_words = [translate(i, ajasa=self.is_ajasa) for i in sentence_list]
@@ -345,12 +356,15 @@ def main(argv=None):
         "--out-file",
         dest="output",
         default=None,
-        help="Translate the words in a text file to Naija pidgin.",
+        help="Output file after --long-tok.",
     )
     parser.add_argument(
         "--ajasa",
         action="store_true",
         help="Adds a popular pidgin slang to translated text.",
+    )
+    parser.add_argument(
+        "-v", "--version", action="store_true", help="Print program version and leave."
     )
 
     args = parser.parse_args(argv)
@@ -359,7 +373,7 @@ def main(argv=None):
         "Sup! Error processing English."
         " Be like water don pas garri - add garri "
         "make we for make confam eba.\n"
-        "GET help with [sabi -h]."
+        "GET help with: sabi -h."
     )
 
     if args.oyinbo is not None:
@@ -371,13 +385,17 @@ def main(argv=None):
             if args.output is None
             else str(args.output)
         )
-        with console.status("READING FILE......", spinner="clock", speed=1):
-            with Translator(args.file, filename, args.ajasa) as is_translated:
-                if is_translated is True:
-                    console.rule(f"FILE GENERATED AS {filename}.")
-                else:
-                    err_console.print(err_text)
-                    sys.exit(1)
+
+        with Translator(args.file, filename, args.ajasa) as is_translated:
+            if is_translated is True:
+                console.rule(f"FILE GENERATED AS {filename}.")
+            else:
+                err_console.bell()
+                console.rule("ERROR")
+                err_console.print(f"{err_text}\n{is_translated.get('why')}")
+                sys.exit(1)
+    elif args.version is True:
+        console.print("sabi v0.1.3")
     else:
         err_console.print(err_text)
         sys.exit(1)

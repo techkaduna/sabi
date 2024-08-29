@@ -1,16 +1,18 @@
 from setuptools import setup, find_packages
 
+
 def read_file(filename):
     with open(filename, "r") as _file:
         output = _file.read()
     return output
 
+
 setup(
     name="sabi",
-    version="0.1.2",
+    version="0.1.3",
     packages=find_packages(),
     description="A simple module to translate plain English to Nigerian (Naija) pidgin English.",
-    long_description=read_file("README.rst")+"\n\n"+read_file("CHANGES.rst"),
+    long_description=read_file("README.rst") + "\n\n" + read_file("CHANGES.rst"),
     long_description_content_type="text/x-rst",
     author="Kolawole Andrew",
     author_email="andrewolakola@gmail.com",
@@ -18,8 +20,8 @@ setup(
     py_modules=[
         "sabi",
     ],
-    requires=[
-        "rich",
+    install_requires=[
+        "rich==13.7.1",
     ],
     license="MIT",
     classifiers=[
