@@ -26,9 +26,3 @@ Release History
 * Fixed the actual install_requires *'slip-of-the-mind'*.
 * Handled error with *sability*.
 * Added version arguments.
-
-0.1.4
-=====
-
-* Fixed punctuation issues.
-* Turn code to okpeke. Reformat code.
