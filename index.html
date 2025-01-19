@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabi - English to Naija Pidgin Translator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+        header {
+            background:rgb(28, 201, 118);
+            color: #fff;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            color: #d63384;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #e9ecef;
+            margin-top: 2rem;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sabi - Translate plain English to Naija Pidgin</h1>
+    </header>
+    <div class="container">
+        <section>
+            <h2>Introduction</h2>
+            <p>A simple module to translate plain English to Nigerian (Naija) pidgin English.</p>
+            <p>The result? Na you <strong>SABI</strong>.</p>
+        </section>
+
+        <section>
+            <h2>Installation</h2>
+            <p>To install using pip, run:</p>
+            <pre><code>pip install sabi</code></pre>
+        </section>
+
+        <section>
+            <h2>Usage Examples</h2>
+            <h3>A simple translation</h3>
+            <pre><code>from sabi import translate
+
+text = "Hello World"
+pidgin = translate(text)
+print(pidgin)</code></pre>
+
+            <h3>Translating from a file into another file</h3>
+            <pre><code>from sabi import Translator
+
+with Translator('english.txt', 'pidgin.txt', ajasa=False) as translated:
+    if translated is True:
+        print('Translated!')</code></pre>
+
+            <h3>Using a decorator</h3>
+            <pre><code>from sabi import translator
+
+@translator(ajasa=True)
+def word(text: str) -> str:
+    return text
+
+word("How are you")</code></pre>
+        </section>
+
+        <section>
+            <h2>Command-line Usage</h2>
+            <h3>Translate text</h3>
+            <pre><code>sabi --oyinbo 'how are you'</code></pre>
+
+            <h3>Translate a file</h3>
+            <pre><code>sabi --long-tok english.txt --out-file pidgin.txt</code></pre>
+
+            <h3>Help text</h3>
+            <pre><code>sabi -h
+sabi --help
+
+# For a more sabi boi help text:
+sabi</code></pre>
+        </section>
+
+        <section>
+            <h2>Contribution</h2>
+            <p>This project is under active development. Contributions are welcome!</p>
+            <p>GitHub: <a href="https://github.com/techkaduna/sabi" target="_blank">https://github.com/techkaduna/sabi</a></p>
+        </section>
+
+        <section>
+            <h2>Authors</h2>
+            <p>Kolawole Olalekan (<a href="mailto:andrewolakola@gmail.com">andrewolakola@gmail.com</a>)</p>
+        </section>
+
+        <section>
+            <h2>Release History</h2>
+            <ul>
+                <li><strong>0.0.1</strong>: Initial Release.</li>
+                <li><strong>0.1.1</strong>: Sabi boy don land: sabi package was published.</li>
+                <li><strong>0.1.2</strong>: Added more sabi boi tunes, tests, and fixed installation requirements bugs.</li>
+                <li><strong>0.1.3</strong>: Fixed punctuation issues, reformat code.</li>
+                <li><strong>0.1.4</strong>: Handled errors and improved functionality.</li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Sabi Team. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
